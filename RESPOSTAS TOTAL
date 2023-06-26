@@ -1,0 +1,273 @@
+q1
+
+func atualizarSomaNaturais(ponteiro *int, n int) {
+	soma := 
+	s
+0
+	for i := 1; i <= n; i++ {
+		soma += i
+	}
+	*ponteiro = soma
+}
+
+
+		soma += i
+	}
+	
+
+		soma += i
+	
+
+		soma += i
+
+	
+func main() {
+	var numero int = 0
+	atualizarSomaNaturais(&numero, 
+	atualizarSomaNaturais(&
+
+	atual
+
+	at
+5)
+	fmt.Println(
+	fmt
+"Valor atualizado:", numero) // Saída: 15
+} 
+
+
+q2
+func atualizarParImpar(ponteiro *int) {
+	if *ponteiro%2 == 0 {
+		*ponteiro = 
+	
+0
+	} 
+	
+else {
+		*ponteiro = 1
+	}
+}
+
+
+	
+func main() {
+	var numero int = 7
+	atualizarParImpar(&numero)
+	fmt.Println(
+	atualizarParImpar(&numero)
+	fmt
+
+	atualizarParImpar(&numero)
+
+	at
+"Valor atualizado:", numero) // Saída: 1
+}
+
+q3
+func atualizarReverso(ponteiro *string) {
+	runes := []
+	run
+rune(*ponteiro)
+	for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
+		runes[i], runes[j] = runes[j], runes[i]
+	}
+	*ponteiro = 
+		runes[i], runes[j] = runes[j], runes[i]
+	}
+	
+
+		runes[i], runes[j] = runes[j], runes[i]
+	
+
+		runes[i], runes[j]
+
+		runes
+
+	
+string(runes)
+}
+
+func main() {
+	var texto string = "Hello, world!"
+	atualizarReverso(&texto)
+	fmt.Println(
+	atualizarReverso(&texto)
+	fmt
+
+	atualizarReverso(&texto)
+"Valor atualizado:", texto) // Saída: "!dlrow ,olleH"
+}
+
+
+q4
+func atualizarSomaUltimosDigitos(ponteiro *int) {
+	ultimoDigito := *ponteiro % 
+	
+10
+	penultimoDigito := (*ponteiro / 
+	penultimoDigito :=
+
+	penultimoDig
+
+	
+10) % 10
+	soma := ultimoDigito + penultimoDigito
+	*ponteiro = soma
+}
+
+
+	soma := ultimoDigito + penultimoDigito
+
+	s
+func main() {
+	var numero int = 1234
+	atualizarSomaUltimosDigitos(&numero)
+	fmt.Println(
+	atualizarSomaUltimosDigitos(&numero)
+	fmt.Println
+
+	atualizarSomaUltimosDigitos(&numero)
+
+	atual
+"Valor atualizado:", numero) // Saída: 7
+}
+
+q5
+
+func atualizarMediaPi(ponteiro *float64) {
+	media := (*ponteiro + math.Pi) / 
+	media := (*ponteiro
+
+	media := (*p
+
+	
+2
+	*ponteiro = media
+}
+
+
+	
+func main() {
+	var numero float64 = 3.14
+	atualizarMediaPi(&numero)
+	fmt.Println(
+	atualizar
+"Valor atualizado:", numero) // Saída: 3.829425
+}
+
+
+q6
+type Livro struct {
+	Titulo string
+	Autor  string
+}
+
+func atualizarTitulo(livro *Livro) {
+	if livro.Autor == "Anônimo" {
+		livro.Titulo = "Desconhecido"
+	}
+}
+
+func main() {
+	livro := Livro{
+		Titulo: "Livro X",
+		Autor:  "Anônimo",
+	}
+
+	atualizarTitulo(&livro)
+	fmt.Println("Título do livro:", livro.Titulo) // Saída: "Desconhecido"
+}
+
+
+q7
+type Conta struct {
+	Saldo   float64
+	Titular string
+}
+
+func adicionarValor(conta *Conta, valor float64) {
+	conta.Saldo += valor
+}
+
+func main() {
+	conta := Conta{
+		Saldo:   100.0,
+		Titular: "João",
+	}
+
+	adicionarValor(&conta, 50.0)
+	fmt.Println("Saldo da conta:", conta.Saldo) // Saída: 150.0
+}
+
+
+q8
+
+func modificarValor(valor *int) {
+	*valor = 10
+}
+
+func main() {
+	var numero int = 5
+	modificarValor(&numero)
+	fmt.Println("Valor modificado:", numero) // Saída: 10
+}
+
+
+q9
+type Livro struct {
+	Titulo string
+	Autor  string
+	Preco  float64
+}
+
+func aplicarDesconto(livro *Livro) {
+	desconto := livro.Preco * 0.1
+	livro.Preco -= desconto
+}
+
+func main() {
+	livro := Livro{
+		Titulo: "Livro Y",
+		Autor:  "Autor Z",
+		Preco:  50.0,
+	}
+
+	aplicarDesconto(&livro)
+	fmt.Println("Preço do livro com desconto:", livro.Preco) // Saída: 45.0
+}
+
+
+q10
+
+func isPrimo(numero int) bool {
+	if numero < 2 {
+		return false
+	}
+	for i := 2; i <= int(math.Sqrt(float64(numero))); i++ {
+		if numero%i == 0 {
+			return false
+		}
+	}
+	return true
+}
+
+func preencherPrimos(primos *[]int, tamanho int) {
+	count := 0
+	numero := 2
+	for count < tamanho {
+		if isPrimo(numero) {
+			*primos = append(*primos, numero)
+			count++
+		}
+		numero++
+	}
+}
+
+func main() {
+	var primos []int
+	tamanho := 5
+
+	preencherPrimos(&primos, tamanho)
+	fmt.Println("Números primos:", primos) // Saída: [2 3 5 7 11]
+}
